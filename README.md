@@ -1,24 +1,13 @@
-# README
+# Install
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```sh
+docker-compose up --build
+```
 
-Things you may want to cover:
+# Prepare db
+```sh
+docker-compose run -e RAILS_ENV=production web rake db:create db:schema:load db:seed assets:precompile
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Hack the planet!
+- visit [todo_security](http://localhost:3000)

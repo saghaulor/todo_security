@@ -1,0 +1,21 @@
+<h1>Todos:</h1>
+<ul>
+<% @todos.each do |todo| %>
+    <ol>
+        <%= form_for todo, method: :patch, url: { controller: :todos, action: :update, id: todo.id } do |f| %>
+            <%= raw(todo.body) %>
+            <%= f.text_field(:body) %>
+            <%= f.submit('update') %>
+        <% end %>
+        <%= form_for todo, method: :delete, url: { controller: :todos, action: :destroy, id: todo.id } do |f| %>
+            <%= f.submit('complete') %>
+        <% end %>
+    </ol>
+<% end %>
+</ul>
+
+<!-- Link to create new todos -->
+<%= form_for Todo.new,url: { action: :create } do |f| %>
+    <%= f.text_field :body %>
+    <%= f.submit '+' %>
+<% end %>

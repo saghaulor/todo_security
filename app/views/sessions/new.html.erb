@@ -1,0 +1,8 @@
+Please authenticate!
+<%= form_for User.new, method: :post, url: { controller: :sessions, action: :create } do |f| %>
+    <%= f.label(:login)%>
+    <%= f.text_field(:login) %>
+    <%= f.label(:password)%>
+    <%= f.text_field(:password) %>
+    <%= f.submit(:login) %>
+<% end %>

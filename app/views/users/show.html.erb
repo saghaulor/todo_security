@@ -1,0 +1,9 @@
+<%= form_for :user, method: :patch, url: { controller: :users, action: :update, id: @current_user.id } do |f| %>
+    <%= f.label(:first_name) %>
+    <%= f.text_field(:firstname) %>
+    <%= f.label(:last_name) %>
+    <%= f.text_field(:lastname) %>
+    <%= f.label(:avatar_url) %>
+    <%= f.text_field(:avatar_url, value: @current_user.avatar_url) %>
+    <%= f.submit(:submit) %>
+<% end %>

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TodoSecurity</title>
-    <%= csrf_meta_tags %>
+      <title>Todo Security</title>
+      <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= favicon_link_tag asset_path('favicon.ico'), rel: 'icon', type: 'image/x-icon' %>
+      <% if @current_user %>
+          <%= image_tag(user_avatar_path(@current_user.id), size: "120x120") %>
+          <%= form_for :session, method: :delete, url: { controller: :sessions, action: :destroy } do |f| %>
+              <%= f.submit('logout') %>
+          <% end %>
+      <% end %>
   </head>
 
   <body>
+    <% if flash.alert %>
+        <div class="notice"><%= flash.alert %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
