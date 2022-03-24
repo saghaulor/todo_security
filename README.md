@@ -2,7 +2,7 @@
 
 # Prerequisites:
 0. You have docker and docker compose installed
-1. You do not have a service running on port 3306, the docker-compose command will start mysql and bind to port 3306
+1. You do not have a service running on port 3308, the docker-compose command will start mysql and bind to port 3308
 2. You do not have a service running on port 3000, the docker-compose command will start rails and bind to port 3000
 
 ```sh
